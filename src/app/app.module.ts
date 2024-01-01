@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {FeaturesModule} from "./features/features.module";
 import {CoreModule} from "./core/core.module";
 import {RouterOutlet} from "@angular/router";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 
@@ -18,6 +19,7 @@ import {RouterOutlet} from "@angular/router";
     CoreModule,
     RouterOutlet,
     FeaturesModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()

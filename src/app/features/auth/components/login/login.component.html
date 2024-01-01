@@ -7,9 +7,9 @@
 
         <div class="form-control">
           <label class="label">
-            <span class="label-text">Email</span>
+            <span class="label-text">Username</span>
           </label>
-          <input  formControlName="email" type="email" placeholder="email" class="input input-bordered focus:input-primary" required />
+          <input  formControlName="username" type="email" placeholder="username" class="input input-bordered focus:input-primary" required />
         </div>
         <div class="form-control">
           <label class="label">
@@ -27,7 +27,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="form.valid && formSubmitted" class="toast toast-top toast-end">
+<div *ngIf="form.valid && isSuccessfulLogin" class="toast toast-top toast-end">
   <div class="alert alert-info">
     <span>Successfully logged in</span>
   </div>

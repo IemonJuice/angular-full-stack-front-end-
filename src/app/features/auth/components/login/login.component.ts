@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
+import {UserCredentialsForLoginModel} from "../../../../core/models/user-credentials-for-login.model";
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,19 @@ import {Router} from "@angular/router";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  router: Router = inject(Router);
+  authService: AuthService = inject(AuthService);
   form: FormGroup = inject(FormBuilder).group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', Validators.required,],
     password: ['', [Validators.required, Validators.min(8)]]
   });
-  formSubmitted: boolean = false
+  isSuccessfulLogin: boolean = false;
 
-  submitForm() {
+  async submitForm() {
     if (this.form.valid) {
-      this.formSubmitted = true;
-      setTimeout(async () => {
-        this.formSubmitted = false;
-        await this.router.navigate(['/welcome'])
-      }, 1000)
+      this.authService.loginUser(this.form.getRawValue() as UserCredentialsForLoginModel)
+      if (this.authService.checkIsUserAuthenticated()) {
+        this.isSuccessfulLogin = true;
+      }
     }
   }
 }
