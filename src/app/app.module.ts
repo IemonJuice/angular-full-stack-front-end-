@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+import {AppComponent} from './app.component';
+import {FeaturesModule} from "./features/features.module";
+import {CoreModule} from "./core/core.module";
+
 
 @NgModule({
   declarations: [
@@ -10,11 +13,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CoreModule,
+    FeaturesModule
   ],
   providers: [
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
