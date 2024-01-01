@@ -1,27 +1,34 @@
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:w-full justify-center lg:flex-row-reverse">
     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form class="card-body">
+      <form [formGroup]="form" class="card-body">
+        <span class="validation-email-text" *ngIf="form.get('email')?.errors && form.touched && form.dirty">enter valid email :)</span>
+        <span class="validation-password-text" *ngIf="form.get('password')?.errors && form.touched && form.dirty">Password must be at least 8 symbols </span>
+
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" class="input input-bordered focus:input-primary" required />
+          <input  formControlName="email" type="email" placeholder="email" class="input input-bordered focus:input-primary" required />
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" class="input input-bordered focus:input-primary" required />
+          <input  minlength="8" formControlName="password" type="password" placeholder="password" class="input input-bordered focus:input-primary" required />
           <label class="label">
             <a routerLink="/register" class="label-text-alt link link-hover">Don't have an account?</a>
           </label>
         </div>
-
         <div class="form-control mt-6">
-          <button class="btn btn-primary">Login</button>
+          <button (click)="submitForm()" class="btn btn-primary">Login</button>
         </div>
       </form>
     </div>
+  </div>
+</div>
+<div *ngIf="form.valid && formSubmitted" class="toast toast-top toast-end">
+  <div class="alert alert-info">
+    <span>Successfully logged in</span>
   </div>
 </div>

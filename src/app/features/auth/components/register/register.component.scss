@@ -4,3 +4,13 @@
   font-weight: bolder;
 
 }
+.positive{
+  outline: 1px solid royalblue;
+  border-radius: 15px;
+  transition-duration: 300ms;
+}
+.negative{
+  outline: 1px solid red;
+  border-radius: 15px;
+  transition-duration: 300ms;
+}

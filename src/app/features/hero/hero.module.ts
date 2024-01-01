@@ -11,7 +11,7 @@ import {RouterModule} from "@angular/router";
   imports: [
     CommonModule,
     RouterModule.forChild([{
-      path:'',component:HeroComponent,title:'Welcome!'
+      path: '', component: HeroComponent, title: 'Welcome!'
     }])
   ],
   exports: [HeroComponent]

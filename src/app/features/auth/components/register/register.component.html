@@ -7,7 +7,10 @@
 
     <div class="card shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
 
-      <form [formGroup]="form" class="card-body">
+      <form [ngClass]="{'positive': positiveCharacter && isCharacterChosen, 'negative': !positiveCharacter && isCharacterChosen}" [formGroup]="form" class="card-body">
+        <span>Enter valid email</span>
+        <span>Enter valid password</span>
+        <span>Choose your character</span>
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>
