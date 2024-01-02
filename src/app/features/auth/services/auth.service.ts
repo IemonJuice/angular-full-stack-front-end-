@@ -5,6 +5,11 @@ import {UserCredentialsForLoginModel} from "../../../core/models/user-credential
 import {Router} from "@angular/router";
 import {UserResponse} from "../../../core/models/user-response.model";
 import {UserCredentialsForRegisterModel} from "../../../core/models/user-credentials-for-register.model";
+import {Observable} from "rxjs";
+import {UserModel} from "../../../core/models/user.model";
+import {logoutAction, successLoginAction, successRegisterAction} from "../../../store/actions/auth.actions";
+import {AuthState} from "../../../store/models/state";
+import {Store} from "@ngrx/store";
 
 
 @Injectable({
@@ -14,7 +19,7 @@ export class AuthService {
 
   cookieService: CookieService = inject(CookieService);
   http: HttpClient = inject(HttpClient);
-
+  store:Store = inject(Store<{auth:AuthState}>)
   isSuccessfulLogin: boolean = false;
 
   private router: Router = inject(Router);
@@ -29,6 +34,7 @@ export class AuthService {
 
         next: (user: UserResponse) => {
           this.cookieService.set('token', user.token);
+          this.store.dispatch(successLoginAction({isLogin:true,user:user.user}))
           this.router.navigate(['/welcome']).then()
           return this.isSuccessfulLogin = true;
         },
@@ -40,19 +46,22 @@ export class AuthService {
 
   logout() {
     this.cookieService.delete('token')
+    this.store.dispatch(logoutAction());
   }
 
-  getUserProfile() {
-    this.http.get('http://localhost:3000/auth/profile').subscribe(user => console.log(user));
+  getUserProfile():Observable<UserModel> {
+    return this.http.get<UserModel>('http://localhost:3000/auth/profile');
   }
 
   register(userToRegisterCredentials:UserCredentialsForRegisterModel) {
     this.http.post<UserResponse>('http://localhost:3000/auth/register',userToRegisterCredentials).subscribe({
       next:(user:UserResponse)=> {
         this.cookieService.set('token',user.token);
+        this.store.dispatch(successRegisterAction({isLogin:true,user:user.user}))
       },
       error: err => console.log(err),
     });
   }
 }
+
 

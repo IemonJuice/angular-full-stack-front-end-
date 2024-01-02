@@ -38,6 +38,5 @@ export class RegisterComponent {
     if(this.form.valid){
      this.authService.register(this.form.getRawValue() as UserCredentialsForRegisterModel)
     }
-    console.log(this.form.valid)
   }
 }

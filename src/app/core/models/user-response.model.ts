@@ -1,4 +1,6 @@
+import {UserModel} from "./user.model";
+
 export interface UserResponse{
-  userId:any
+  user:UserModel
   token:string;
 }

@@ -8,9 +8,12 @@
     <div class="card shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
 
       <form [ngClass]="{'positive': positiveCharacter && isCharacterChosen, 'negative': !positiveCharacter && isCharacterChosen}" [formGroup]="form" class="card-body">
-        <span>Enter valid email</span>
-        <span>Enter valid password</span>
-        <span>Choose your character</span>
+
+        <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Enter valid email!</span>
+        <span *ngIf="form.get('username')?.invalid && form.get('username')?.touched">Enter username!</span>
+        <span *ngIf="form.get('password')?.invalid && form.get('password')?.touched">Enter valid password!</span>
+        <span *ngIf="form.get('character')?.invalid && form.get('character')?.touched">Choose your character!</span>
+
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>

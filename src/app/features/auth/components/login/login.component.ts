@@ -2,6 +2,9 @@ import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {UserCredentialsForLoginModel} from "../../../../core/models/user-credentials-for-login.model";
+import {Store} from "@ngrx/store";
+import {AuthState} from "../../../../store/models/state";
+import {successLoginAction} from "../../../../store/actions/auth.actions";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,7 @@ import {UserCredentialsForLoginModel} from "../../../../core/models/user-credent
 })
 export class LoginComponent {
   authService: AuthService = inject(AuthService);
+  store: Store<{auth:AuthState}> = inject(Store<{auth:AuthState}>);
   form: FormGroup = inject(FormBuilder).group({
     username: ['', Validators.required,],
     password: ['', [Validators.required, Validators.min(8)]]

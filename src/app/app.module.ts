@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, isDevMode} from '@angular/core';
 import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 
 
@@ -8,6 +8,9 @@ import {CoreModule} from "./core/core.module";
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
 import {authInterceptor} from "./core/interceptors/auth.interceptor";
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {authReducer} from "./store/reducers/authReducer";
 
 
 
@@ -21,6 +24,8 @@ import {authInterceptor} from "./core/interceptors/auth.interceptor";
     RouterOutlet,
     FeaturesModule,
     HttpClientModule,
+    StoreModule.forRoot({auth:authReducer}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     provideClientHydration(),
