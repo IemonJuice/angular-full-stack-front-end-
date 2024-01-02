@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="profile">
+  <div class="profile__photo">
+    <img *ngIf="character === 'jedi'"  src="./assets/jedi.svg" alt="">
+    <img *ngIf="character === 'sith'"  src="./assets/account-avatar-profile-user-3-svgrepo-com.svg" alt="">
+  </div>
+
+  <div class="profile__information">
+
+    <div class="profile__information_username">
+      <label class="text-lg text-accent">username</label>
+      <div class="text-3xl">
+        {{username}}
+      </div>
+    </div>
+
+    <div class="profile__information_character">
+      <label class="text-lg text-accent">character</label>
+      <div class="text-3xl">
+        {{character}}
+      </div>
+    </div>
+
+    <div class="profile__information_email">
+      <label class="text-lg text-accent">email</label>
+      <div class="text-3xl">
+        {{email}}
+      </div>
+    </div>
+
+  </div>
+</div>
