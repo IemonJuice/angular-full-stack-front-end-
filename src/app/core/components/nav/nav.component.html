@@ -11,8 +11,9 @@
         <li>
           <a  routerLink="">Mails</a>
           <ul class="p-2">
-            <li *ngIf="isUserAuthenticated"><a>My emails</a></li>
-            <li *ngIf="isUserAuthenticated"><a>Write an amail</a></li>
+            <li *ngIf="isUserAuthenticated"><a>Topics</a></li>
+            <li *ngIf="isUserAuthenticated"><a>My topics</a></li>
+            <li *ngIf="isUserAuthenticated"><a>Write an topic</a></li>
           </ul>
         </li>
         <li *ngIf="!isUserAuthenticated"><a  routerLink="/login">Login</a></li>
@@ -39,6 +40,7 @@
           <summary routerLink="" >Topics
           </summary>
           <ul class="p-2 w-32">
+            <li><a>Topics</a></li>
             <li><a>My topics</a></li>
             <li><a>Write a topic</a></li>
           </ul>

@@ -1,1 +1,5 @@
-<p>topics works!</p>
+<div class="wrapper">
+  <ng-container *ngFor="let topic of topics">
+    <app-topic  [topic]="topic"></app-topic>
+  </ng-container>
+</div>
