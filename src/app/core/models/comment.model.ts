@@ -1,5 +1,6 @@
 export interface CommentModel{
-  id:number;
+  topicId:number;
   content:string;
   authorName:string;
+  authorCharacter:string;
 }
