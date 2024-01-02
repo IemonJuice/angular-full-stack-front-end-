@@ -6,7 +6,7 @@
     <div>
       <h1 class="text-5xl font-bold">Topics web App </h1>
       <p class="py-6">You can easily create post or see other from anyone. Be the first who try it</p>
-      <button routerLink="/register" class="btn btn-primary">Get Started</button>
+      <button (click)="redirectIfAuthenticated()" class="btn btn-primary">Get Started</button>
     </div>
   </div>
 </div>
