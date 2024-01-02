@@ -1,6 +1,6 @@
 .topic{
   padding: 10px;
-  height: 500px;
+  min-height: 500px;
   width: 700px;
   text-align: center;
   &__header{
@@ -19,7 +19,7 @@
   &__content{
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 70%;
+    min-height: 70%;
     overflow-x:hidden;
     overflow-y: auto;
     word-wrap: anywhere;
@@ -37,4 +37,11 @@
     @apply bg-primary
   }
   @apply  outline-1 outline outline-primary scroll-smooth mt-5
+}
+.comment{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }

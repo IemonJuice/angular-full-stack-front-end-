@@ -9,7 +9,20 @@
   <div class="topic__content">
     {{topic.content}}
   </div>
-  <div>
-    <button class="btn btn-primary">comment</button>
+  <div class="flex gap-5 justify-center items-center">
+    <button (click)="isCommentsToggles=!isCommentsToggles" class="btn btn-primary">comment</button>
+    <input *ngIf="isCommentsToggles" type="text" placeholder="Author" class="input input-bordered input-primary "/>
+    <input *ngIf="isCommentsToggles" type="text" placeholder="Comment content" class="input input-bordered input-primary"/>
+  </div>
+
+  <div class="flex flex-col gap-2" *ngIf="isCommentsToggles">
+    <ng-container *ngFor="let comment of topic.comments">
+      <div class="comment">
+        <span class="flex items-center gap-2">
+         <img width="32" src="./assets/jedi.svg" alt=""> {{comment.authorName}}
+        </span>
+        <span>{{comment.content}}</span>
+      </div>
+    </ng-container>
   </div>
 </div>

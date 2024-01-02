@@ -8,4 +8,6 @@ import {Topic} from "../../../../core/models/topic.model";
 })
 export class TopicComponent {
   @Input('topic') topic!: Topic;
+  isCommentsToggles: boolean = false;
+
 }
