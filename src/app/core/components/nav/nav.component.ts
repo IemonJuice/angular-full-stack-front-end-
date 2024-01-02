@@ -18,4 +18,8 @@ export class NavComponent implements OnInit {
   logout() {
     this.authService.logout()
   }
+
+  getUserProfile() {
+    this.authService.getUserProfile()
+  }
 }

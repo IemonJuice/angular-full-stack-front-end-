@@ -6,7 +6,8 @@ import {AppComponent} from './app.component';
 import {FeaturesModule} from "./features/features.module";
 import {CoreModule} from "./core/core.module";
 import {RouterOutlet} from "@angular/router";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
+import {authInterceptor} from "./core/interceptors/auth.interceptor";
 
 
 
@@ -22,7 +23,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     HttpClientModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withInterceptors([authInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

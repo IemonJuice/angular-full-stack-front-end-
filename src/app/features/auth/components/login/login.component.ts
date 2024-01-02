@@ -18,7 +18,7 @@ export class LoginComponent {
 
   async submitForm() {
     if (this.form.valid) {
-      this.authService.loginUser(this.form.getRawValue() as UserCredentialsForLoginModel)
+      this.authService.login(this.form.getRawValue() as UserCredentialsForLoginModel)
       if (this.authService.checkIsUserAuthenticated()) {
         this.isSuccessfulLogin = true;
       }

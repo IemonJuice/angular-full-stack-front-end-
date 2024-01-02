@@ -46,7 +46,7 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a *ngIf="isUserAuthenticated" routerLink="profile" class="btn btn-circle"> <img src="./assets/account-avatar-profile-user-3-svgrepo-com.svg" alt="">
+    <a (click)="getUserProfile()" *ngIf="isUserAuthenticated" routerLink="profile" class="btn btn-circle"> <img src="./assets/account-avatar-profile-user-3-svgrepo-com.svg" alt="">
     </a>
   </div>
 </div>
