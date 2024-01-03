@@ -14,6 +14,7 @@ export class TopicsComponent implements OnInit {
   ngOnInit() {
     this.topicsService.getAllTopics().subscribe((topics: Topic[]) => {
       this.topics = topics;
+      console.log(this.topics)
     })
 
   }

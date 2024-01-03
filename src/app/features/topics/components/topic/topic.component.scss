@@ -19,13 +19,11 @@
   &__content{
     margin-top: 10px;
     margin-bottom: 10px;
-    min-height: 70%;
+    min-height: 400px;
     overflow-x:hidden;
     overflow-y: auto;
     word-wrap: anywhere;
     @apply outline-1 outline outline-primary
-
-
   }
   ::-webkit-scrollbar{
     width: 10px!important;

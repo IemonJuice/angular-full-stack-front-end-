@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <form [formGroup]="topicToSendForm" class="topic">
+    <div class="topic__title">
+      <label><span class="text-primary">#</span>topic title</label>
+      <input formControlName="title" type="text" placeholder="#Topics title here" class="input input-bordered input-primary w-full max-w-xs" />
+    </div>
+    <div class="topic__content">
+      <label><span class="text-primary">#</span>topic content</label>
+      <textarea formControlName="content" class="textarea textarea-primary" placeholder="Bio"></textarea>
+    </div>
+    <div>
+      <button (click)="sendTopicForm()" class="topic__submit_button">Post topic</button>
+    </div>
+  </form>
+</div>
